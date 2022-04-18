@@ -1,3 +1,4 @@
+from ast import MatchSequence
 from tabulate import tabulate    
 
 tabela = [[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]]
@@ -13,9 +14,6 @@ def flipVertical():
         x = solutionsCopy
         x.reverse()
         solutions.append(x)
-
-# def flipHorizontal():
-#     for i in range(12):
 
 
 
@@ -33,16 +31,18 @@ linhaAtual = 1
 
 print(tabulate(tabela))
 
-for i in range(12):         #filtra solutions por solucoes q começam com o input e coloca em matched
+tamanhoSol = len(solutions)
+print(tamanhoSol)
+for i in range(tamanhoSol):         #filtra solutions por solucoes q começam com o input e coloca em matched
     print(solutions[i][0])
     if solutions[i][0] == coluna:
         matchedSol.append(solutions[i])
 
 #//////
 while not linhaAtual == 8:
-    #print(tabulate(matchedSol))
-    x = 100                     # valores quaisquer
-    nextCasa = 100              #para serem substituidos
+    print(tabulate(matchedSol))
+    x = 100                                         # valores quaisquer
+    nextCasa = 100                                  #para serem substituidos
     for i in range(len(matchedSol)):                #buscando nessa lista de possiveis soluções
         distance = abs(matchedSol[i][linhaAtual] - coluna)
         print(matchedSol)
@@ -67,13 +67,8 @@ while not linhaAtual == 8:
     #print(linhaAtual)
     tabela[linhaAtual][nextCasa] = 1
     linhaAtual += 1
-    #print(tabulate(tabela))
 
-
-
-    #print(x)
-    #print(nextCasa)
-    #print(tabulate(matchedSol))
+    
 
 print(tabulate(tabela))
     
